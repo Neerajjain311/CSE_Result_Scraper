@@ -14,7 +14,5 @@ Fun Project to explore web scraping using Python and Selenium.
 4. Sit back and relax. Rank wise results will be stored in file named "cpi.txt".
 
 # Note
-Replace 
-chromedriver = r"C:/Users/NJ/Desktop/Desktop/Drivers/chromedriver_win32 (1)/chromedriver.exe"
-With 
-The path of "chromedriver.exe" in your system.
+Replace (chromedriver = r"C:/Users/NJ/Desktop/Desktop/Drivers/chromedriver_win32 (1)/chromedriver.exe") in the python script
+with the path of "chromedriver.exe" in your system.
