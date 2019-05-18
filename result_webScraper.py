@@ -4,7 +4,7 @@
 import os
 import pyautogui
 
-#Coz it's Necessary :P
+#Coz it's Necessary :p
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
