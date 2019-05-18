@@ -1,18 +1,17 @@
-#Fun Project - Try 001
+#Fun Project - Web Scraper 001
 
 #Basics -..-
 import os
 import pyautogui
-from time import sleep
 
-#Kyuki Yeh Sab Jaroori Hai !!
+#Because it's necessary :P
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-#Browser k Liye !!
+#For Browser !!
 options = Options()
 options.set_headless(headless=True)
 chromedriver = r"C:/Users/NJ/Desktop/Desktop/Drivers/chromedriver_win32 (1)/chromedriver.exe"
@@ -23,7 +22,7 @@ browser = webdriver.Chrome(chromedriver, chrome_options = options)
 url = 'https://results.nitrr.ac.in/Default.aspx'
 browser.get(url)
 
-#Storing Name and Result(CPI)
+#Storing Name and Result(SPI & CPI)
 results = []
 
 #Let's Loopify
@@ -41,7 +40,6 @@ for i in range(1,94):
 		
 		input_roll = browser.find_element_by_id("txtRegno")
 		roll = '16115' + num
-		print(roll)
 		
 		input_roll.clear()
 		input_roll.send_keys(roll)
@@ -55,6 +53,7 @@ for i in range(1,94):
 		showRes = browser.find_element_by_id("btnimgShowResult")
 		showRes.click()
 
+		print(roll)
 		name = browser.find_element_by_id("lblStudentName").text
 		spi = browser.find_element_by_id("lblSPI").text
 		cpi = browser.find_element_by_id("lblCPI").text
@@ -63,13 +62,15 @@ for i in range(1,94):
 		results.append([name,float(cpi)])
 	
 	except:
-		#print('exception occured')
 		pass
 
+#Let's Rank our Amigos :>
 results.sort(key=lambda x: x[1], reverse=True)
-with open('cpi.txt', 'w') as f:
+with open('Result.txt', 'w') as f:
 	i = 1
 	for item in results:
 		f.write(f"{i}. {item[0]} -- {item[1]}\n")
 		i += 1
+
+#Time to say Goodbye to the Browser :(		
 browser.quit()
